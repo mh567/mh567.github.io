@@ -1,125 +1,260 @@
-# no style, please!
+# 个人博客 - no-style-please 主题
 
 [![Gem Version](https://badge.fury.io/rb/no-style-please.svg)](https://badge.fury.io/rb/no-style-please)
 
-<img src="https://raw.githubusercontent.com/riggraz/no-style-please/master/logo.png" width="64" align="left" />A (nearly) no-CSS, fast, minimalist [Jekyll](https://jekyllrb.com/) theme.
-Inspired by [elly's site](http://tilde.town/~elly/), expressly created for [my personal blog](https://riggraz.dev/).
+<img src="https://raw.githubusercontent.com/riggraz/no-style-please/master/logo.png" width="64" align="left" />极简无CSS风格的快速 [Jekyll](https://jekyllrb.com/) 博客主题。
+基于 [no-style-please](https://github.com/riggraz/no-style-please) 主题改进，专为个人笔记博客设计。
 
-<h3 align="center"><a href="https://riggraz.dev/no-style-please/">Try the demo out!</a></h3>
+<h3 align="center"><a href="https://blog.emolu.cn">查看博客</a></h3>
 
 <img src="https://raw.githubusercontent.com/riggraz/no-style-please/master/_screenshots/featured-image.png" />
 
-## Features
+## ✨ 特性
 
-* Fast (**1kb of CSS!** For more information on performance and more, see [Page Speed Insights report](https://raw.githubusercontent.com/riggraz/no-style-please/master/_screenshots/page-speed-insights-report.png) and [Lighthouse report](https://raw.githubusercontent.com/riggraz/no-style-please/master/_screenshots/lighthouse-report.png))
-* Light, dark and auto modes
-* Responsive
-* Content first (typography optimized for maximum readability)
-* SEO optimized (uses [Jekyll SEO Tag](https://github.com/jekyll/jekyll-seo-tag))
-* RSS feed (uses [Jekyll Feed](https://github.com/jekyll/jekyll-feed))
-* Fully compatible with [GitHub Pages](https://pages.github.com/) (see [GitHub Pages installation](#github-pages-installation))
+* 🚀 **极速加载** - 只有 1KB CSS！
+* 🎨 **三种模式** - 亮色、暗色和自动模式
+* 📱 **完全响应式** - 支持所有设备
+* 📝 **内容优先** - 排版优化，专注可读性
+* 🔍 **SEO优化** - 集成 [Jekyll SEO Tag](https://github.com/jekyll/jekyll-seo-tag)
+* 📡 **RSS订阅** - 集成 [Jekyll Feed](https://github.com/jekyll/jekyll-feed)
+* 🏷️ **分类系统** - 支持多分类，动态菜单，收缩展开
+* ✅ **GitHub Pages** - 完全兼容，自动构建
 
-## Installation
+## 🚀 快速开始
 
-If you haven't already created your blog using Jekyll, follow the [instructions](https://jekyllrb.com/docs/) to do so from Jekyll's documentation.
+### 基础要求
 
-NOTE: if you are using Jekyll with GitHub Pages, see the [GitHub Pages installation section](#github-pages-installation).
+- Jekyll 3.0 或更高版本
+- Ruby 2.5 或更高版本
 
-Then, to style your blog with this theme, add this line to your Jekyll site's `Gemfile`:
+### 本地开发
 
-```ruby
-gem "no-style-please"
+```bash
+# 克隆仓库
+git clone https://github.com/mh567/mh567.github.io.git
+cd mh567.github.io
+
+# 安装依赖
+bundle install
+
+# 启动本地服务
+bundle exec jekyll serve
+
+# 访问 http://localhost:4000
 ```
 
-And add this line to your Jekyll site's `_config.yml`:
+### GitHub Pages 部署
+
+仓库已配置自动部署到 GitHub Pages。只需推送代码：
+
+```bash
+git add .
+git commit -m "your message"
+git push origin master
+```
+
+GitHub 会自动构建并部署到 `https://yourusername.github.io`
+
+## 📖 使用指南
+
+### 配置博客
+
+编辑 `_config.yml` 可以自定义博客。常用配置项：
 
 ```yaml
-theme: no-style-please
+title: 博客标题          # 网站名称
+author: 作者名称         # 作者名字
+url: https://blog.example.com  # 博客地址
+baseurl: ""             # 子路径（通常为空）
+description: 博客描述    # 网站描述
+permalink: /:slug.html  # 文章链接格式
+
+theme_config:
+  appearance: "auto"     # 主题模式：light/dark/auto
+  date_format: "%Y-%m-%d"  # 日期格式
+  show_description: false # 主页显示描述
+  lowercase_titles: true  # 标题转小写
 ```
 
-And then execute:
+### 🏷️ 分类系统（重要功能！）
 
-    $ bundle
+本博客增强了分类功能，支持多分类和动态菜单。
 
-Or install it yourself as:
+#### 为文章添加分类
 
-    $ gem install no-style-please
-
-### GitHub Pages installation
-
-If you want to use this theme for your Jekyll's site deployed on [GitHub Pages](https://pages.github.com/), follow the instructions on [this page](https://docs.github.com/en/github/working-with-github-pages/adding-a-theme-to-your-github-pages-site-using-jekyll#adding-a-theme).
-
-## Usage
-
-You can edit `_config.yml` file to customize your blog. You can change things such as the name of the blog, the author, the appearance of the theme (light, dark or auto), how dates are formatted, etc. Customizable fields should be straightforward to understand. Still, `_config.yml` contains some comments to help you understand what each field does.
-
-For further customization (e.g. layout, CSS) see the [official Jekyll's documentation](https://jekyllrb.com/docs/themes/#overriding-theme-defaults) on customizing gem-based themes.
-
-### Customize the menu
-
-In order to add/edit/delete entries from the main menu, you have to edit the `menu.yml` file inside `_data` folder. Through that file you can define the structure of the menu. Take a look at the default configuration to get an idea of how it works and read on for a more comprehensive explanation.
-
-The `menu.yml` file accepts the following fields:
-
-- `entries` define a new unordered list that will contain menu entries
-- each entry is marked by a `-` at the beginning of the line
-- each entry can have the following attributes:
-    - `title`, which defines the text to render for this menu entry (**NB: you can also specify HTML!**)
-    - `url`, which can be used to specify an URL for this entry. If not specified, `title` will be rendered as-is; otherwise `title` will be sorrounded by a link tag pointing to the specified URL. Note that the URL can either be relative or absolute. Also note that you can get the same result by placing an ```<a>``` tag in the `title` field.
-    - `post_list`, which can be set either to `true` or to an object. If it is true, the entry will have a list of all posts as subentries. This is used to render your post list. If you want to customize which posts to render (e.g. by category), you can add one or more of the following attributes under `post_list`:
-        - `category`, which can be set to a string. It is used to render a list of posts of the specified category only. If you don't set it, then posts of all categories will be rendered.
-        - `limit`, which can be set to a number. It specifies the number of posts to show. If not set, all posts will be rendered.
-        - `show_more`, which can be true. If it is true and if the number of posts to show is greater than the specified `limit`, render a link to another page. To specify the URL and the text of the link, you can set `show_more_url` and `show_more_text` attributes, which are documented below.
-        - `show_more_url`, which can be a string. It specifies the URL for the show more link. Use only if `show_more` is true. This will usually redirect to a page containing all posts, which you can easily create using an archive page (see [create archive pages](#create-archive-pages) section)
-        - `show_more_text`, which can be a string. It specifies the text for the show more link. Use only if `show_more` is true.
-    - `entries`, yes, you can have entries inside entries. In this way you can create nested sublists!
-
-### Create archive pages
-
-A so-called archive page is a page that shows a list of posts (see [this](https://riggraz.dev/no-style-please/all-posts) for an example). You can create an archive page by creating a page and putting the following frontmatter:
-
-```
+```markdown
 ---
-layout: archive
-title: The title of the page here
-which_category: name-of-category
+layout: post
+title: 文章标题
+categories: [分类1, 分类2, 分类3]
 ---
+
+文章内容...
 ```
 
-`which_category` is optional: if you don't put it, then all posts of the blog will be listed; on the other hand, if you specify a category, only posts of that category will be shown.
+**向后兼容：** 旧格式 `category: IAM` 也支持。
 
-This feature is particularly useful if used together with the `show_more` attribute in the menu. For example, if you want to limit the number of posts shown in the home page to 5 but add a link to view them all, then you can create an archive page using the method showed above and link to it using the `show_more_url` attribute in `menu.yml`. See [this example](https://github.com/riggraz/no-style-please/blob/master/_data/menu.yml) if you're in doubt.
+#### 菜单配置
 
-### Customize the index page
+编辑 `_data/menu.yml` 配置分类菜单：
 
-The `index.md` page should use layout `home`, which is the layout that displays the menu. If you want to have some content after the menu, you can just add that content in the `index.md` file, and it will automatically show under the menu.
+```yaml
+entries:
+  - title: 最新文档
+    post_list:
+      limit: 7
+      show_more: true
+      show_more_text: 查看更多...
+      show_more_url: archive.html
 
-Another thing you can do to customize the index page is show the description of your blog between the title and the menu. To do this, just edit `_config.yml` and change `theme_config.show_description` to `true`.
+  - title: 文档分类
+    category_list:
+      limit: 5  # 初始显示5个分类，超过则显示展开按钮
+```
 
-### Pro tips
+#### 分类功能说明
 
-#### Dark mode for images
+- ✅ **自动分类列表** - 从文章自动生成，无需手动维护
+- ✅ **动态展开收缩** - 点击"显示更多分类"展开隐藏分类
+- ✅ **分类计数** - 显示每个分类有多少篇文章
+- ✅ **快速导航** - 点击分类标签跳转到该分类页面
+- ✅ **完整分类页** - `/categories.html` 展示所有分类和文章
 
-This theme provides dark mode by inverting all colors of light mode throught the CSS `invert()` function. This approach would also invert the color of all images, but, since this is not the behaviour one would expect, images are not inverted by default.
+### 📑 菜单自定义
 
-However, if you would like to force the color inversion on a specific image you can do so by applying `class="ioda"` to that image ("ioda" stands for "invert on dark appearance"). See the image in the [overview post](https://github.com/riggraz/no-style-please/blob/master/_posts/2020-07-07-overview-post.md) for an example of this approach. Note that color inversion will take place only when the theme has dark appearance!
+编辑 `_data/menu.yml` 定义菜单结构：
 
-For example, if you have a black and white image it could make sense to invert it in dark mode. On the other hand, a colorful image will probably look bad if inverted.
+```yaml
+entries:
+  - title: 菜单项名称
+    url: /page/                    # 链接地址（可选）
+    post_list:                     # 显示文章列表（可选）
+      limit: 10                    # 最多显示10篇
+      category: 分类名             # 仅显示某分类（可选）
+    category_list:                 # 显示分类列表（可选）
+      limit: 5                     # 最多显示5个分类
+    entries:                       # 子菜单（可选）
+      - title: 子菜单项
+        url: /sub-page/
+```
 
-## Contributing
+**字段说明：**
+- `title` - 显示文本（支持HTML）
+- `url` - 链接地址，若不指定则纯文本显示
+- `post_list` - 显示文章列表
+  - `category` - 按分类过滤（可选）
+  - `limit` - 限制数量（可选）
+  - `show_more` - 显示查看更多链接
+  - `show_more_url` - 查看更多的链接地址
+  - `show_more_text` - 查看更多的文本
+- `category_list` - 显示分类列表
+  - `limit` - 最多显示分类数量
+- `entries` - 子菜单列表
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/riggraz/no-style-please. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+### 📚 创建文档页面
 
-## Development
+创建一个页面（如分类页）：
 
-To set up your environment to develop this theme, run `bundle install`.
+```markdown
+---
+layout: page
+title: 页面标题
+permalink: /page-url/
+---
 
-Your theme is setup just like a normal Jekyll site! To test your theme, run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
+页面内容...
+```
 
-When your theme is released, only the files in `_layouts`, `_includes`, `_sass` and `assets` tracked with Git will be bundled.
-To add a custom directory to your theme-gem, please edit the regexp in `no-style-please.gemspec` accordingly.
+博客已内置 `categories.html` 显示所有分类。
 
-## License
+### 📱 主页定制
 
-The theme is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+`index.md` 使用 `home` 布局显示菜单。可以在文件中添加内容，会自动在菜单下显示。
+
+若要显示博客描述，编辑 `_config.yml`：
+
+```yaml
+theme_config:
+  show_description: true
+```
+
+### 💡 尝试的技巧
+
+#### 暗色模式下反转图片
+
+本主题在暗色模式下通过CSS反转所有颜色（包括图片）。若要强制某个图片在暗色模式下反转，添加 `class="ioda"`：
+
+```markdown
+![图片描述](image.png){:.ioda}
+```
+
+这对黑白图片很有用。
+
+## 📝 文件结构
+
+```
+.
+├── _config.yml              # 站点配置
+├── _data/
+│   └── menu.yml            # 菜单配置
+├── _layouts/               # 页面布局
+│   ├── default.html        # 默认布局
+│   ├── home.html           # 主页布局
+│   ├── page.html           # 页面布局
+│   ├── post.html           # 文章布局
+│   └── archive.html        # 归档布局
+├── _includes/              # 组件文件
+│   ├── post_list.html      # 文章列表组件
+│   ├── category_list.html  # 分类列表组件（新）
+│   ├── menu_item.html      # 菜单项组件
+│   └── ...
+├── _posts/                 # 文章目录
+│   └── YYYY-MM-DD-title.md
+├── assets/
+│   ├── css/main.scss       # 样式文件
+│   └── js/category.js      # 分类脚本（新）
+├── _sass/                  # Sass源文件
+│   └── no-style-please.scss
+├── index.md                # 主页
+├── categories.md           # 分类页面
+└── README.md               # 本文件
+```
+
+## 🛠️ 开发指南
+
+### 本地开发
+
+```bash
+# 安装依赖
+bundle install
+
+# 启动服务
+bundle exec jekyll serve
+
+# 访问 http://localhost:4000
+```
+
+### 修改样式
+
+编辑 `_sass/no-style-please.scss`，会自动编译到 `assets/css/main.css`。
+
+### 添加功能
+
+- 修改 `_layouts/` 中的布局文件
+- 修改 `_includes/` 中的组件文件
+- 无需修改 `_config.yml` 配置
+
+## 🤝 贡献
+
+欢迎提交 Pull Request 改进本博客！
+
+## 📄 许可证
+
+基于 [no-style-please](https://github.com/riggraz/no-style-please) 主题。
+
+## 🔗 相关链接
+
+- [Jekyll 官方文档](https://jekyllrb.com/)
+- [no-style-please 原主题](https://github.com/riggraz/no-style-please)
+- [GitHub Pages 帮助](https://docs.github.com/en/pages)
 

@@ -96,3 +96,56 @@ img {
   display: block;
   margin: 0 auto;
 }
+
+.post-category {
+  background: black;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.875rem;
+  display: inline-block;
+}
+
+.category-count {
+  color: #666;
+  font-size: 0.875rem;
+  margin-left: 0.3rem;
+  margin-right: 1rem;
+}
+
+.category-list {
+  margin: 1rem 0;
+  line-height: 1.8;
+}
+
+.category-link {
+  color: black;
+  text-decoration: none;
+  border-bottom: 1px solid black;
+  margin-right: 0.2rem;
+}
+
+.category-link:hover {
+  background: yellow;
+}
+
+.category-button {
+  background: none;
+  border: 1px solid black;
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+  font-family: monospace;
+  font-size: 0.875rem;
+  color: black;
+  margin-left: 1rem;
+}
+
+.category-button:hover {
+  background: black;
+  color: white;
+}
+
+.category-expanded {
+  display: inline;
+  margin-left: 1rem;
+}

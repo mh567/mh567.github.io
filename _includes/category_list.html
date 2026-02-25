@@ -1,0 +1,33 @@
+{%- assign categories = site.categories | sort -%}
+{%- if categories.size > 0 -%}
+  {%- assign limit = include.limit | default: 5 -%}
+  
+  <div class="category-list">
+    {%- for category in categories limit: limit -%}
+      <a href="/categories.html#{{ category[0] | slugify }}" class="category-link">
+        #{{ category[0] }}
+      </a>
+      <span class="category-count">({{ category[1].size }})</span>
+    {%- endfor -%}
+    
+    {%- if categories.size > limit -%}
+      <button class="category-button" id="category-toggle" onclick="toggleCategories(this)">
+        显示更多分类 ({{ categories.size | minus: limit }})
+      </button>
+    {%- endif -%}
+    
+    {%- if categories.size > limit -%}
+      <div class="category-expanded" id="category-expanded" style="display: none;">
+        {%- for category in categories offset: limit -%}
+          <a href="/categories.html#{{ category[0] | slugify }}" class="category-link">
+            #{{ category[0] }}
+          </a>
+          <span class="category-count">({{ category[1].size }})</span>
+        {%- endfor -%}
+        <button class="category-button" onclick="toggleCategories(this)">
+          隐藏分类
+        </button>
+      </div>
+    {%- endif -%}
+  </div>
+{%- endif -%}

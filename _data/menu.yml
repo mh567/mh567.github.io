@@ -10,11 +10,9 @@ entries:
       show_more_url: archive.html
 
   - title: 文档分类
-    post_list:
-      category: IAM
-      show_more: true
-      show_more_text: 查看更多...
-      show_more_url: example2-archive.html
+    category_list:
+      limit: 5
+
 
   - title: VibeCoding
     entries:
