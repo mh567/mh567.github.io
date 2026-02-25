@@ -4,7 +4,9 @@
 ---
 
 <hr>
-<h2 id="date-2025-09-25"><span class="prefix"></span><span class="content">date: 2025-09-25</span><span class="suffix"></span></h2>
+<h2 id="layout-posttitle-双因素认证2facategory-iam"><span class="prefix"></span><span class="content">layout: post<br>
+title: 双因素认证(2FA)<br>
+category: IAM</span><span class="suffix"></span></h2>
 <h1 id="双因素认证2fa"><span class="prefix"></span><span class="content">双因素认证(2FA)</span><span class="suffix"></span></h1>
 <h3 id="一般来说，三种不同类型的证据，可以证明一个人的身份三种因素。"><span class="prefix"></span><span class="content">一般来说，三种不同类型的证据，可以证明一个人的身份(三种因素)。</span><span class="suffix"></span></h3>
 <blockquote>
