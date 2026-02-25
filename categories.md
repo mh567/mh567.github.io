@@ -11,6 +11,7 @@ permalink: /categories.html
 
 <h2 id="{{ category[0] | slugify }}">{{ category[0] }}</h2>
 
-{% include post_list.html category=category[0] %}
+{% assign cat_name = category[0] %}
+{% include post_list.html category=cat_name %}
 
 {% endfor %}
