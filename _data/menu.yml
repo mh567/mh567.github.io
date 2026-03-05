@@ -17,7 +17,7 @@ entries:
   - title: VibeCoding
     entries:
       - title: 【nav-sylph】极简风格个人导航与书签管理页面
-        url: https://emolu.cn
+        url: https://emolu.cn:444
       - title: 【gemini-web-cli】Google Gemini Web 终端代理
         url: https://github.com/mh567/gemini-web-cli
       - title: 【aria2bar】aria2 Macos菜单栏管理工具
