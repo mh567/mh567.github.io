@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Linux firewall stack</title>
+  <desc id="desc">Diagram showing the relationship between Netfilter, nftables, iptables, ufw and firewalld across Linux distributions.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f5f7fb; }
+      .kernel { fill: #d9e8ff; stroke: #4b6b8d; stroke-width: 2; rx: 18; ry: 18; }
+      .tool { fill: #fff1d6; stroke: #926b2c; stroke-width: 2; rx: 18; ry: 18; }
+      .manager { fill: #dff3e5; stroke: #487158; stroke-width: 2; rx: 18; ry: 18; }
+      .distro { fill: #ffffff; stroke: #596275; stroke-width: 2; rx: 18; ry: 18; }
+      .title { fill: #1a2433; font: 34px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; font-weight: 700; }
+      .text { fill: #22303c; font: 24px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; }
+      .small { fill: #425466; font: 20px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; }
+      .arrow { stroke: #334155; stroke-width: 4; fill: none; marker-end: url(#m2); }
+    </style>
+    <marker id="m2" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#334155" />
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1200" height="700" />
+  <text x="55" y="62" class="title">Linux 各类防火墙软件的上下层关系</text>
+
+  <rect x="380" y="580" width="430" height="80" class="kernel" />
+  <text x="505" y="628" class="text">Netfilter（内核框架）</text>
+
+  <rect x="170" y="420" width="320" height="88" class="tool" />
+  <text x="270" y="470" class="text">iptables</text>
+  <text x="205" y="498" class="small">老语法，很多存量系统仍在使用</text>
+
+  <rect x="710" y="420" width="320" height="88" class="tool" />
+  <text x="820" y="470" class="text">nft</text>
+  <text x="755" y="498" class="small">nftables 的原生命令与规则模型</text>
+
+  <rect x="130" y="245" width="260" height="88" class="manager" />
+  <text x="236" y="296" class="text">ufw</text>
+  <text x="165" y="323" class="small">Ubuntu 常见的简化管理前端</text>
+
+  <rect x="810" y="245" width="260" height="88" class="manager" />
+  <text x="883" y="296" class="text">firewalld</text>
+  <text x="845" y="323" class="small">RHEL 系常见的策略管理层</text>
+
+  <rect x="80" y="95" width="300" height="92" class="distro" />
+  <text x="130" y="145" class="text">Debian / Ubuntu</text>
+  <text x="108" y="174" class="small">常见组合：ufw + iptables-nft 或 nftables</text>
+
+  <rect x="460" y="95" width="300" height="92" class="distro" />
+  <text x="500" y="145" class="text">RHEL / CentOS / Fedora</text>
+  <text x="505" y="174" class="small">常见组合：firewalld + nftables</text>
+
+  <rect x="840" y="95" width="260" height="92" class="distro" />
+  <text x="922" y="145" class="text">Arch</text>
+  <text x="866" y="174" class="small">更常直接使用 nftables</text>
+
+  <path d="M260 187 L260 245" class="arrow" />
+  <path d="M610 187 L930 245" class="arrow" />
+  <path d="M970 187 L970 245" class="arrow" />
+  <path d="M260 333 L320 420" class="arrow" />
+  <path d="M940 333 L870 420" class="arrow" />
+  <path d="M330 508 L520 580" class="arrow" />
+  <path d="M870 508 L670 580" class="arrow" />
+
+  <text x="57" y="680" class="small">要点：内核只有 Netfilter；iptables、nft 是写规则的工具；ufw、firewalld 是更上层的管理入口。</text>
+</svg>

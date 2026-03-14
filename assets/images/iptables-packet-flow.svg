@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">iptables packet flow overview</title>
+  <desc id="desc">Diagram showing how packets pass through PREROUTING, INPUT, FORWARD, OUTPUT and POSTROUTING in Linux Netfilter.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f4ec; }
+      .panel { fill: #fffdf8; stroke: #2c3e50; stroke-width: 2; rx: 18; ry: 18; }
+      .hook { fill: #d9ead3; stroke: #456b52; stroke-width: 2; rx: 12; ry: 12; }
+      .host { fill: #dce9f7; stroke: #47627c; stroke-width: 2; rx: 12; ry: 12; }
+      .nat { fill: #f8d7c1; stroke: #8a5a3f; stroke-width: 2; rx: 12; ry: 12; }
+      .text { fill: #1f2933; font: 24px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; }
+      .small { fill: #425466; font: 20px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; }
+      .title { fill: #16212b; font: 34px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; font-weight: 700; }
+      .arrow { stroke: #2c3e50; stroke-width: 4; fill: none; marker-end: url(#m); }
+      .note { fill: #fff6d8; stroke: #987f2f; stroke-width: 2; rx: 12; ry: 12; }
+    </style>
+    <marker id="m" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2c3e50" />
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1200" height="620" />
+  <text x="60" y="62" class="title">Netfilter / iptables 报文流向示意</text>
+
+  <rect x="50" y="110" width="1100" height="450" class="panel" />
+
+  <rect x="100" y="225" width="170" height="70" class="hook" />
+  <text x="135" y="268" class="text">PREROUTING</text>
+
+  <rect x="365" y="120" width="170" height="70" class="host" />
+  <text x="427" y="163" class="text">INPUT</text>
+
+  <rect x="365" y="380" width="170" height="70" class="host" />
+  <text x="409" y="423" class="text">OUTPUT</text>
+
+  <rect x="635" y="225" width="170" height="70" class="hook" />
+  <text x="680" y="268" class="text">FORWARD</text>
+
+  <rect x="920" y="225" width="180" height="70" class="nat" />
+  <text x="945" y="268" class="text">POSTROUTING</text>
+
+  <rect x="365" y="235" width="170" height="100" class="panel" />
+  <text x="400" y="277" class="text">本机协议栈</text>
+  <text x="398" y="310" class="small">目标是本机的包</text>
+
+  <path d="M270 260 L365 260" class="arrow" />
+  <path d="M535 260 L635 260" class="arrow" />
+  <path d="M805 260 L920 260" class="arrow" />
+
+  <path d="M450 190 L450 235" class="arrow" />
+  <path d="M450 335 L450 380" class="arrow" />
+  <path d="M535 260 C585 260 590 260 635 260" class="arrow" />
+
+  <rect x="84" y="145" width="145" height="46" class="note" />
+  <text x="105" y="175" class="small">进站报文先到这里</text>
+
+  <rect x="316" y="478" width="300" height="54" class="note" />
+  <text x="345" y="512" class="small">本机发出的包会先经过 OUTPUT</text>
+
+  <rect x="735" y="120" width="300" height="54" class="note" />
+  <text x="760" y="154" class="small">路由后若不是本机目标，就走 FORWARD</text>
+
+  <text x="85" y="585" class="small">常见理解：主机防火墙主要盯 INPUT / OUTPUT；做网关转发时重点看 FORWARD 与 NAT。</text>
+</svg>
