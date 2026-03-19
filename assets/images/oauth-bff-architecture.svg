@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="820" viewBox="0 0 1280 820" role="img" aria-labelledby="title desc">
+  <title id="title">BFF 模式时序图</title>
+  <desc id="desc">展示浏览器、BFF、授权服务器、会话存储和资源服务器之间的请求时序。</desc>
+  <defs>
+    <style>
+      .bg { fill: #faf8f2; }
+      .frame { fill: #fffefb; stroke: #d9d3c7; stroke-width: 1.5; rx: 20; ry: 20; }
+      .actor { fill: #ffffff; stroke: #334155; stroke-width: 2; rx: 12; ry: 12; }
+      .lane { stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 8 10; }
+      .arrow { stroke: #1f2937; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .back { stroke: #64748b; stroke-width: 2.5; fill: none; marker-end: url(#arrowBack); stroke-dasharray: 8 6; }
+      .title { fill: #0f172a; font: 700 30px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; }
+      .label { fill: #0f172a; font: 600 22px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; }
+      .text { fill: #1f2937; font: 20px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; }
+      .small { fill: #475569; font: 18px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1f2937" />
+    </marker>
+    <marker id="arrowBack" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b" />
+    </marker>
+  </defs>
+  <rect class="bg" width="1280" height="820" />
+  <rect x="40" y="40" width="1200" height="740" class="frame" />
+  <text x="70" y="88" class="title">BFF 模式时序图</text>
+  <text x="70" y="120" class="small">浏览器只持有会话标识；令牌申请、刷新和 API 代理都在 BFF 侧完成。</text>
+
+  <rect x="70" y="150" width="160" height="56" class="actor" />
+  <rect x="290" y="150" width="160" height="56" class="actor" />
+  <rect x="520" y="150" width="180" height="56" class="actor" />
+  <rect x="780" y="150" width="160" height="56" class="actor" />
+  <rect x="1020" y="150" width="180" height="56" class="actor" />
+  <text x="115" y="186" class="label">浏览器</text>
+  <text x="350" y="186" class="label">BFF</text>
+  <text x="555" y="186" class="label">授权服务器</text>
+  <text x="810" y="186" class="label">会话存储</text>
+  <text x="1060" y="186" class="label">资源服务器</text>
+
+  <line x1="150" y1="206" x2="150" y2="700" class="lane" />
+  <line x1="370" y1="206" x2="370" y2="700" class="lane" />
+  <line x1="610" y1="206" x2="610" y2="700" class="lane" />
+  <line x1="860" y1="206" x2="860" y2="700" class="lane" />
+  <line x1="1110" y1="206" x2="1110" y2="700" class="lane" />
+
+  <path d="M150 270 L370 270" class="arrow" />
+  <text x="182" y="258" class="text">访问应用</text>
+  <path d="M370 330 L610 330" class="arrow" />
+  <text x="408" y="318" class="text">发起授权码流程</text>
+  <path d="M610 390 L370 390" class="back" />
+  <text x="390" y="414" class="small">返回 code / token</text>
+  <path d="M370 450 L860 450" class="arrow" />
+  <text x="515" y="438" class="text">保存 Session 与 Token</text>
+  <path d="M370 510 L150 510" class="back" />
+  <text x="182" y="534" class="small">Set-Cookie: Session ID</text>
+  <path d="M150 580 L370 580" class="arrow" />
+  <text x="176" y="568" class="text">浏览器带 Cookie 请求业务接口</text>
+  <path d="M370 640 L1110 640" class="arrow" />
+  <text x="610" y="628" class="text">BFF 查会话后代持 Token 调用 API</text>
+
+  <text x="90" y="745" class="small">关键点：浏览器拿不到 Access Token；BFF 持有令牌并负责与下游资源服务器交互。</text>
+</svg>

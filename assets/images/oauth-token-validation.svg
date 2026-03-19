@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="860" viewBox="0 0 1280 860" role="img" aria-labelledby="title desc">
+  <title id="title">Access Token 验证流程图</title>
+  <desc id="desc">通过两个泳道对比 Opaque Token 和 JWT 在资源服务器中的验证流程。</desc>
+  <defs>
+    <style>
+      .bg { fill: #faf8f2; }
+      .frame { fill: #fffefb; stroke: #d9d3c7; stroke-width: 1.5; rx: 20; ry: 20; }
+      .panel { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.5; rx: 16; ry: 16; }
+      .actor { fill: #ffffff; stroke: #334155; stroke-width: 2; rx: 12; ry: 12; }
+      .lane { stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 8 10; }
+      .arrow { stroke: #1f2937; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .back { stroke: #64748b; stroke-width: 2.5; fill: none; marker-end: url(#arrowBack); stroke-dasharray: 8 6; }
+      .title { fill: #0f172a; font: 700 30px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; }
+      .label { fill: #0f172a; font: 600 22px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; }
+      .text { fill: #1f2937; font: 20px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; }
+      .small { fill: #475569; font: 18px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; }
+      .sub { fill: #334155; font: 600 20px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1f2937" />
+    </marker>
+    <marker id="arrowBack" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b" />
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1280" height="860" />
+  <rect x="40" y="40" width="1200" height="780" class="frame" />
+  <text x="70" y="88" class="title">Access Token 验证流程</text>
+  <text x="70" y="120" class="small">上半部分是不透明令牌，下半部分是 JWT。两种方式最终都要回到权限判断。</text>
+
+  <rect x="70" y="150" width="1140" height="290" class="panel" />
+  <text x="95" y="190" class="sub">路径 A：Opaque Token</text>
+  <rect x="120" y="215" width="160" height="52" class="actor" />
+  <rect x="530" y="215" width="210" height="52" class="actor" />
+  <rect x="930" y="215" width="190" height="52" class="actor" />
+  <text x="160" y="248" class="label">客户端</text>
+  <text x="562" y="248" class="label">资源服务器</text>
+  <text x="970" y="248" class="label">授权服务器</text>
+  <line x1="200" y1="267" x2="200" y2="385" class="lane" />
+  <line x1="635" y1="267" x2="635" y2="385" class="lane" />
+  <line x1="1025" y1="267" x2="1025" y2="385" class="lane" />
+  <path d="M200 310 L635 310" class="arrow" />
+  <text x="312" y="298" class="text">Bearer Opaque Token</text>
+  <path d="M635 345 L1025 345" class="arrow" />
+  <text x="715" y="333" class="text">调用 Introspection</text>
+  <path d="M1025 380 L635 380" class="back" />
+  <text x="748" y="404" class="small">返回 active / exp / scope / sub</text>
+
+  <rect x="70" y="470" width="1140" height="290" class="panel" />
+  <text x="95" y="510" class="sub">路径 B：JWT</text>
+  <rect x="120" y="535" width="160" height="52" class="actor" />
+  <rect x="530" y="535" width="210" height="52" class="actor" />
+  <rect x="930" y="535" width="190" height="52" class="actor" />
+  <text x="160" y="568" class="label">客户端</text>
+  <text x="562" y="568" class="label">资源服务器</text>
+  <text x="985" y="568" class="label">JWKS</text>
+  <line x1="200" y1="587" x2="200" y2="705" class="lane" />
+  <line x1="635" y1="587" x2="635" y2="705" class="lane" />
+  <line x1="1025" y1="587" x2="1025" y2="705" class="lane" />
+  <path d="M200 630 L635 630" class="arrow" />
+  <text x="365" y="618" class="text">Bearer JWT</text>
+  <path d="M635 665 L1025 665" class="arrow" />
+  <text x="730" y="653" class="text">获取公钥或缓存命中</text>
+  <path d="M1025 700 L635 700" class="back" />
+  <text x="710" y="724" class="small">本地验签并检查 exp / iss / aud</text>
+
+  <text x="90" y="795" class="small">共同步骤：无论是哪种令牌，资源服务器最后都要做 scope、角色和资源归属校验。</text>
+</svg>

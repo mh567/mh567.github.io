@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">SPA + PKCE 模式时序图</title>
+  <desc id="desc">展示单页应用在浏览器中完成授权码加 PKCE 的典型流程。</desc>
+  <defs>
+    <style>
+      .bg { fill: #faf8f2; }
+      .frame { fill: #fffefb; stroke: #d9d3c7; stroke-width: 1.5; rx: 20; ry: 20; }
+      .actor { fill: #ffffff; stroke: #334155; stroke-width: 2; rx: 12; ry: 12; }
+      .lane { stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 8 10; }
+      .arrow { stroke: #1f2937; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .back { stroke: #64748b; stroke-width: 2.5; fill: none; marker-end: url(#arrowBack); stroke-dasharray: 8 6; }
+      .title { fill: #0f172a; font: 700 30px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; }
+      .label { fill: #0f172a; font: 600 22px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; }
+      .text { fill: #1f2937; font: 20px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; }
+      .small { fill: #475569; font: 18px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1f2937" />
+    </marker>
+    <marker id="arrowBack" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b" />
+    </marker>
+  </defs>
+  <rect class="bg" width="1280" height="760" />
+  <rect x="40" y="40" width="1200" height="680" class="frame" />
+  <text x="70" y="88" class="title">SPA + PKCE 时序图</text>
+  <text x="70" y="120" class="small">适用于无独立后端的浏览器应用，Access Token 会进入前端运行环境。</text>
+
+  <rect x="110" y="150" width="220" height="56" class="actor" />
+  <rect x="530" y="150" width="220" height="56" class="actor" />
+  <rect x="930" y="150" width="220" height="56" class="actor" />
+  <text x="173" y="186" class="label">浏览器中的 SPA</text>
+  <text x="590" y="186" class="label">授权服务器</text>
+  <text x="988" y="186" class="label">资源服务器</text>
+  <line x1="220" y1="206" x2="220" y2="640" class="lane" />
+  <line x1="640" y1="206" x2="640" y2="640" class="lane" />
+  <line x1="1040" y1="206" x2="1040" y2="640" class="lane" />
+
+  <path d="M220 270 L640 270" class="arrow" />
+  <text x="315" y="258" class="text">带 code_challenge 发起授权请求</text>
+  <path d="M640 340 L220 340" class="back" />
+  <text x="385" y="364" class="small">返回授权码 code</text>
+  <path d="M220 410 L640 410" class="arrow" />
+  <text x="300" y="398" class="text">code + code_verifier 换 Access Token</text>
+  <path d="M640 480 L220 480" class="back" />
+  <text x="380" y="504" class="small">返回 Access Token</text>
+  <path d="M220 560 L1040 560" class="arrow" />
+  <text x="510" y="548" class="text">SPA 带 Bearer Token 调用 API</text>
+
+  <text x="90" y="685" class="small">注意：PKCE 解决的是授权码被窃取后的重放风险，前端仍需要认真处理 Token 的存储与暴露面问题。</text>
+</svg>
