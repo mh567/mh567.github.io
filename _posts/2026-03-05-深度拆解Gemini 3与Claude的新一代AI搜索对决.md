@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 深度拆解Gemini 3与Claude的新一代AI搜索对决
+title: Gemini 3与Claude的AI搜索
 categories: [AI]
 ---
 
