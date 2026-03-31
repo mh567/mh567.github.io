@@ -27,7 +27,7 @@
   <rect class="bg" width="1280" height="760" />
   <rect x="40" y="40" width="1200" height="680" class="frame" />
   <text x="70" y="88" class="title">SAML IdP 发起登录（IdP-Initiated SSO）</text>
-  <text x="70" y="120" class="small">用户先在门户完成登录，IdP 直接返回带签名断言的响应，SP 仅负责消费与校验。</text>
+  <text x="70" y="120" class="small">用户先在门户完成登录，IdP 直接返回带签名的响应或签名断言，SP 仅负责消费与校验。</text>
 
   <rect x="90" y="150" width="220" height="56" class="actor" />
   <rect x="520" y="150" width="240" height="56" class="actor" />
@@ -49,12 +49,12 @@
   <circle cx="92" cy="330" r="16" class="badge" />
   <text x="87" y="336" class="small">2</text>
   <path d="M640 330 L640 370" class="arrow" />
-  <text x="705" y="345" class="text">IdP 生成已签名 SAML Response</text>
+  <text x="695" y="345" class="text">IdP 生成带签名的 Response 或 Assertion</text>
 
   <circle cx="92" cy="405" r="16" class="badge" />
   <text x="87" y="411" class="small">3</text>
   <path d="M640 405 L200 405" class="back" />
-  <text x="275" y="393" class="text">返回自动提交表单（含 Response）</text>
+  <text x="260" y="393" class="text">返回自动提交表单（含 SAML Response）</text>
 
   <circle cx="92" cy="480" r="16" class="badge" />
   <text x="87" y="486" class="small">4</text>
@@ -72,5 +72,5 @@
   <text x="430" y="608" class="text">建立本地会话并跳转到目标页面</text>
 
   <line x1="70" y1="640" x2="1210" y2="640" class="divider" />
-  <text x="90" y="685" class="small">关键点：该模式没有 InResponseTo 绑定，工程上需额外做好防重放和 RelayState 完整性保护。</text>
+  <text x="90" y="685" class="small">关键点：该模式通常缺少可用于请求绑定的 InResponseTo，工程上需额外做好防重放和 RelayState 完整性保护。</text>
 </svg>

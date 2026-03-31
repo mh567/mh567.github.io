@@ -37,9 +37,9 @@
   <text x="566" y="186" class="label">服务提供方 SP</text>
   <text x="996" y="186" class="label">身份提供方 IdP</text>
 
-  <line x1="200" y1="206" x2="200" y2="660" class="lane" />
-  <line x1="640" y1="206" x2="640" y2="660" class="lane" />
-  <line x1="1060" y1="206" x2="1060" y2="660" class="lane" />
+  <line x1="200" y1="206" x2="200" y2="690" class="lane" />
+  <line x1="640" y1="206" x2="640" y2="690" class="lane" />
+  <line x1="1060" y1="206" x2="1060" y2="690" class="lane" />
 
   <circle cx="92" cy="260" r="16" class="badge" />
   <text x="87" y="266" class="small">1</text>
@@ -61,16 +61,21 @@
   <path d="M1060 455 L1060 495" class="arrow" />
   <text x="905" y="443" class="text">IdP 完成用户认证并签发 Response</text>
 
-  <circle cx="92" cy="530" r="16" class="badge" />
-  <text x="87" y="536" class="small">5</text>
-  <path d="M200 530 L640 530" class="arrow" />
-  <text x="305" y="518" class="text">POST 到 SP 的 ACS（携带 SAML Response）</text>
+  <circle cx="92" cy="520" r="16" class="badge" />
+  <text x="87" y="526" class="small">5</text>
+  <path d="M1060 520 L200 520" class="back" />
+  <text x="330" y="508" class="text">返回自动提交表单（含 SAML Response）</text>
 
-  <circle cx="92" cy="595" r="16" class="badge" />
-  <text x="87" y="601" class="small">6</text>
-  <path d="M640 595 L200 595" class="back" />
-  <text x="355" y="583" class="text">SP 验签与断言校验通过，建立会话并返回目标页</text>
+  <circle cx="92" cy="585" r="16" class="badge" />
+  <text x="87" y="591" class="small">6</text>
+  <path d="M200 585 L640 585" class="arrow" />
+  <text x="305" y="573" class="text">POST 到 SP 的 ACS（携带 SAML Response）</text>
 
-  <line x1="70" y1="640" x2="1210" y2="640" class="divider" />
-  <text x="90" y="685" class="small">关键点：信任基础来自元数据和证书；浏览器只负责消息中转，安全判断在 SP/IdP 两端完成。</text>
+  <circle cx="92" cy="650" r="16" class="badge" />
+  <text x="87" y="656" class="small">7</text>
+  <path d="M640 650 L200 650" class="back" />
+  <text x="355" y="638" class="text">SP 验签与断言校验通过，建立会话并返回目标页</text>
+
+  <line x1="70" y1="690" x2="1210" y2="690" class="divider" />
+  <text x="90" y="720" class="small">关键点：信任基础来自元数据和证书；浏览器只负责消息中转，安全判断在 SP/IdP 两端完成。</text>
 </svg>
