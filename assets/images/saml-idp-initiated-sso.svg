@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">SAML IdP 发起登录（IdP-Initiated SSO）时序图</title>
+  <desc id="desc">展示用户从统一门户进入业务系统时，IdP 直接发起 SAML 响应并由浏览器回传到 SP 的流程。</desc>
+  <defs>
+    <style>
+      .bg { fill: #faf8f2; }
+      .frame { fill: #fffefb; stroke: #d9d3c7; stroke-width: 1.5; rx: 20; ry: 20; }
+      .actor { fill: #ffffff; stroke: #334155; stroke-width: 2; rx: 12; ry: 12; }
+      .lane { stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 8 10; }
+      .arrow { stroke: #1f2937; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .back { stroke: #64748b; stroke-width: 2.5; fill: none; marker-end: url(#arrowBack); stroke-dasharray: 8 6; }
+      .title { fill: #0f172a; font: 700 30px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; }
+      .label { fill: #0f172a; font: 600 22px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; }
+      .text { fill: #1f2937; font: 20px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; }
+      .small { fill: #475569; font: 18px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; }
+      .badge { fill: #e2e8f0; }
+      .divider { stroke: #e5e7eb; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1f2937" />
+    </marker>
+    <marker id="arrowBack" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b" />
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1280" height="760" />
+  <rect x="40" y="40" width="1200" height="680" class="frame" />
+  <text x="70" y="88" class="title">SAML IdP 发起登录（IdP-Initiated SSO）</text>
+  <text x="70" y="120" class="small">用户先在门户完成登录，IdP 直接返回带签名断言的响应，SP 仅负责消费与校验。</text>
+
+  <rect x="90" y="150" width="220" height="56" class="actor" />
+  <rect x="520" y="150" width="240" height="56" class="actor" />
+  <rect x="940" y="150" width="240" height="56" class="actor" />
+
+  <text x="146" y="186" class="label">用户浏览器</text>
+  <text x="576" y="186" class="label">身份提供方 IdP</text>
+  <text x="996" y="186" class="label">服务提供方 SP</text>
+
+  <line x1="200" y1="206" x2="200" y2="660" class="lane" />
+  <line x1="640" y1="206" x2="640" y2="660" class="lane" />
+  <line x1="1060" y1="206" x2="1060" y2="660" class="lane" />
+
+  <circle cx="92" cy="260" r="16" class="badge" />
+  <text x="87" y="266" class="small">1</text>
+  <path d="M200 260 L640 260" class="arrow" />
+  <text x="330" y="248" class="text">用户在门户点击“进入业务系统”</text>
+
+  <circle cx="92" cy="330" r="16" class="badge" />
+  <text x="87" y="336" class="small">2</text>
+  <path d="M640 330 L640 370" class="arrow" />
+  <text x="705" y="345" class="text">IdP 生成已签名 SAML Response</text>
+
+  <circle cx="92" cy="405" r="16" class="badge" />
+  <text x="87" y="411" class="small">3</text>
+  <path d="M640 405 L200 405" class="back" />
+  <text x="275" y="393" class="text">返回自动提交表单（含 Response）</text>
+
+  <circle cx="92" cy="480" r="16" class="badge" />
+  <text x="87" y="486" class="small">4</text>
+  <path d="M200 480 L1060 480" class="arrow" />
+  <text x="365" y="468" class="text">浏览器 POST 到 SP ACS（含 RelayState）</text>
+
+  <circle cx="92" cy="555" r="16" class="badge" />
+  <text x="87" y="561" class="small">5</text>
+  <path d="M1060 555 L1060 595" class="arrow" />
+  <text x="885" y="543" class="text">SP 验签、校验 Issuer/Audience/时间窗口</text>
+
+  <circle cx="92" cy="620" r="16" class="badge" />
+  <text x="87" y="626" class="small">6</text>
+  <path d="M1060 620 L200 620" class="back" />
+  <text x="430" y="608" class="text">建立本地会话并跳转到目标页面</text>
+
+  <line x1="70" y1="640" x2="1210" y2="640" class="divider" />
+  <text x="90" y="685" class="small">关键点：该模式没有 InResponseTo 绑定，工程上需额外做好防重放和 RelayState 完整性保护。</text>
+</svg>

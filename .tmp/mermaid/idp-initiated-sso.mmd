@@ -1,0 +1,11 @@
+sequenceDiagram
+    participant User as 用户浏览器
+    participant IdP as 身份提供方 IdP
+    participant SP as 服务提供方 SP
+
+    User->>IdP: 已登录门户，点击"进入业务系统"
+    IdP->>IdP: 生成 SAML Response（含已签名断言）
+    IdP-->>User: 返回带有 SAML Response 的自动提交表单
+    User->>SP: POST 到 SP 的 ACS URL（含 Response 和 RelayState）
+    SP->>SP: 验签、校验断言、建立本地会话
+    SP-->>User: 跳转到目标页面

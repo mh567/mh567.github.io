@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant User as 用户浏览器
+    participant SP as 服务提供方 SP
+    participant IdP as 身份提供方 IdP
+
+    User->>SP: 访问受保护资源
+    SP-->>User: 重定向到 IdP，并携带 AuthnRequest
+    User->>IdP: 发起认证请求
+    IdP->>IdP: 校验用户身份
+    IdP-->>User: 返回带有 SAML Response 的表单
+    User->>SP: POST 到 ACS URL
+    SP->>SP: 验签、校验断言、建立本地会话
+    SP-->>User: 登录成功并返回目标页面

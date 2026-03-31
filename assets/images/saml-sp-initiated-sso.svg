@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760" role="img" aria-labelledby="title desc">
+  <title id="title">SAML SP 发起登录（SP-Initiated SSO）时序图</title>
+  <desc id="desc">展示用户浏览器、服务提供方 SP 与身份提供方 IdP 之间的 SAML 登录交互流程。</desc>
+  <defs>
+    <style>
+      .bg { fill: #faf8f2; }
+      .frame { fill: #fffefb; stroke: #d9d3c7; stroke-width: 1.5; rx: 20; ry: 20; }
+      .actor { fill: #ffffff; stroke: #334155; stroke-width: 2; rx: 12; ry: 12; }
+      .lane { stroke: #cbd5e1; stroke-width: 2; stroke-dasharray: 8 10; }
+      .arrow { stroke: #1f2937; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .back { stroke: #64748b; stroke-width: 2.5; fill: none; marker-end: url(#arrowBack); stroke-dasharray: 8 6; }
+      .title { fill: #0f172a; font: 700 30px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; }
+      .label { fill: #0f172a; font: 600 22px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; }
+      .text { fill: #1f2937; font: 20px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; }
+      .small { fill: #475569; font: 18px 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; }
+      .badge { fill: #e2e8f0; }
+      .divider { stroke: #e5e7eb; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1f2937" />
+    </marker>
+    <marker id="arrowBack" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b" />
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1280" height="760" />
+  <rect x="40" y="40" width="1200" height="680" class="frame" />
+  <text x="70" y="88" class="title">SAML SP 发起登录（SP-Initiated SSO）</text>
+  <text x="70" y="120" class="small">SP 先发现未登录，再重定向到 IdP，最终由浏览器把 SAML Response 回传到 ACS。</text>
+
+  <rect x="90" y="150" width="220" height="56" class="actor" />
+  <rect x="520" y="150" width="240" height="56" class="actor" />
+  <rect x="940" y="150" width="240" height="56" class="actor" />
+
+  <text x="146" y="186" class="label">用户浏览器</text>
+  <text x="566" y="186" class="label">服务提供方 SP</text>
+  <text x="996" y="186" class="label">身份提供方 IdP</text>
+
+  <line x1="200" y1="206" x2="200" y2="660" class="lane" />
+  <line x1="640" y1="206" x2="640" y2="660" class="lane" />
+  <line x1="1060" y1="206" x2="1060" y2="660" class="lane" />
+
+  <circle cx="92" cy="260" r="16" class="badge" />
+  <text x="87" y="266" class="small">1</text>
+  <path d="M200 260 L640 260" class="arrow" />
+  <text x="300" y="248" class="text">访问受保护资源</text>
+
+  <circle cx="92" cy="325" r="16" class="badge" />
+  <text x="87" y="331" class="small">2</text>
+  <path d="M640 325 L200 325" class="back" />
+  <text x="305" y="313" class="text">302 重定向到 IdP（附 AuthnRequest）</text>
+
+  <circle cx="92" cy="390" r="16" class="badge" />
+  <text x="87" y="396" class="small">3</text>
+  <path d="M200 390 L1060 390" class="arrow" />
+  <text x="500" y="378" class="text">浏览器访问 IdP SSO 端点</text>
+
+  <circle cx="92" cy="455" r="16" class="badge" />
+  <text x="87" y="461" class="small">4</text>
+  <path d="M1060 455 L1060 495" class="arrow" />
+  <text x="905" y="443" class="text">IdP 完成用户认证并签发 Response</text>
+
+  <circle cx="92" cy="530" r="16" class="badge" />
+  <text x="87" y="536" class="small">5</text>
+  <path d="M200 530 L640 530" class="arrow" />
+  <text x="305" y="518" class="text">POST 到 SP 的 ACS（携带 SAML Response）</text>
+
+  <circle cx="92" cy="595" r="16" class="badge" />
+  <text x="87" y="601" class="small">6</text>
+  <path d="M640 595 L200 595" class="back" />
+  <text x="355" y="583" class="text">SP 验签与断言校验通过，建立会话并返回目标页</text>
+
+  <line x1="70" y1="640" x2="1210" y2="640" class="divider" />
+  <text x="90" y="685" class="small">关键点：信任基础来自元数据和证书；浏览器只负责消息中转，安全判断在 SP/IdP 两端完成。</text>
+</svg>
