@@ -55,7 +55,8 @@ li { margin: 0.4rem 0; }
 *:target { background: yellow; }
 
 .w {
-  width: min(100%, calc(var(--content-max-width) + (var(--page-horizontal-padding) * 2)));
+  width: 100%;
+  max-width: calc(var(--content-max-width) + (var(--page-horizontal-padding) * 2));
   margin: 0 auto;
   padding: clamp(2rem, 6vh, 4rem) var(--page-horizontal-padding);
   box-sizing: border-box;
@@ -260,7 +261,7 @@ img {
 
 @media (pointer: coarse) {
   .w {
-    padding-left: max(var(--page-horizontal-padding), env(safe-area-inset-left));
-    padding-right: max(var(--page-horizontal-padding), env(safe-area-inset-right));
+    padding-left: calc(var(--page-horizontal-padding) + env(safe-area-inset-left));
+    padding-right: calc(var(--page-horizontal-padding) + env(safe-area-inset-right));
   }
 }
