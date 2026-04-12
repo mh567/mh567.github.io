@@ -29,6 +29,7 @@ html { height: 100%; scroll-behavior: smooth; }
 
 :root {
   --content-max-width: 640px;
+  --article-max-width: 72ch;
   --page-horizontal-padding: clamp(1rem, 4vw, 2.5rem);
 }
 
@@ -176,13 +177,27 @@ img {
 }
 
 .post-article {
+  width: 100%;
   margin: 0 auto;
-  max-width: 72ch;
+  max-width: var(--article-max-width);
 }
 
 .post-content {
+  width: 100%;
   font-size: clamp(1rem, calc(0.96rem + 0.2vw), 1.08rem);
   line-height: 1.75;
+}
+
+.post-content > * {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.post-content pre,
+.post-content div.highlighter-rouge,
+.post-content .mermaid,
+.post-content table {
+  max-width: 100%;
 }
 
 .post-content h2,
@@ -208,8 +223,10 @@ img {
 }
 
 .post-content pre,
-.post-content div.highlighter-rouge {
+.post-content div.highlighter-rouge,
+.post-content .mermaid {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .post-content div.highlighter-rouge code {
@@ -219,6 +236,7 @@ img {
 }
 
 .post-content table {
+  display: table;
   width: auto;
   max-width: 100%;
   margin: 1rem auto;
@@ -226,19 +244,31 @@ img {
 
 @media (min-width: 768px) {
   :root {
-    --content-max-width: 820px;
+    --content-max-width: 900px;
+    --article-max-width: 80ch;
     --page-horizontal-padding: 2.25rem;
   }
 }
 
 @media (min-width: 1200px) {
   :root {
-    --content-max-width: 960px;
+    --content-max-width: 1120px;
+    --article-max-width: 92ch;
     --page-horizontal-padding: 2.75rem;
   }
+}
 
-  .post-article {
-    max-width: 76ch;
+@media (max-width: 900px) {
+  .post-content table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .post-content th,
+  .post-content td {
+    white-space: nowrap;
   }
 }
 
@@ -257,17 +287,6 @@ img {
     font-size: 0.85rem;
   }
 
-  .post-content table {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .post-content th,
-  .post-content td {
-    white-space: nowrap;
-  }
 }
 
 @media (pointer: coarse) {
