@@ -219,10 +219,9 @@ img {
 }
 
 .post-content table {
-  display: block;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  white-space: nowrap;
+  width: auto;
+  max-width: 100%;
+  margin: 1rem auto;
 }
 
 @media (min-width: 768px) {
@@ -256,6 +255,18 @@ img {
   .post-content table,
   .post-content div.highlighter-rouge code {
     font-size: 0.85rem;
+  }
+
+  .post-content table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .post-content th,
+  .post-content td {
+    white-space: nowrap;
   }
 }
 
