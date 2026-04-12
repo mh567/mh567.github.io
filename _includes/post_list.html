@@ -11,6 +11,10 @@
 {%-endif-%}
 
 {%- assign show_categories = include.show_categories | default: false -%}
+{%- assign lowercase_titles = include.lowercase_titles -%}
+{%- if lowercase_titles == nil -%}
+  {%- assign lowercase_titles = site.theme_config.lowercase_titles -%}
+{%- endif -%}
 
 {%- if posts.size > 0 -%}
   <ul>
@@ -23,7 +27,7 @@
             {%- elsif post.category %} | <a href="/categories.html#{{ post.category | slugify }}" class="post-category">{{ post.category }}</a>
             {%- endif %}
           {%- endif %}
-          {% if site.theme_config.lowercase_titles == true %}
+          {% if lowercase_titles == true %}
           <a href="{{ post.url | relative_url }}">{{ post.title | downcase }}</a>
           {% else %}
           <a href="{{ post.url | relative_url }}">{{ post.title }}</a>

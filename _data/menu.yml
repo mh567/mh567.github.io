@@ -5,6 +5,7 @@ entries:
   - title: 最新文档
     post_list:
       limit: 10
+      lowercase_titles: false
       show_more: true
       show_more_text: 查看更多...
       show_more_url: archive.html
