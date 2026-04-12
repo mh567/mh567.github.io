@@ -27,6 +27,11 @@ html, body { background: white; }
 
 html { height: 100%; scroll-behavior: smooth; }
 
+:root {
+  --content-max-width: 640px;
+  --page-horizontal-padding: clamp(1rem, 4vw, 2.5rem);
+}
+
 body {
   color: black;
   font-family: monospace;
@@ -50,9 +55,10 @@ li { margin: 0.4rem 0; }
 *:target { background: yellow; }
 
 .w {
-  max-width: 640px;
+  width: min(100%, calc(var(--content-max-width) + (var(--page-horizontal-padding) * 2)));
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: clamp(2rem, 6vh, 4rem) var(--page-horizontal-padding);
+  box-sizing: border-box;
 }
 
 hr {
@@ -166,4 +172,95 @@ img {
 .category-expanded {
   display: inline;
   margin-left: 1rem;
+}
+
+.post-article {
+  margin: 0 auto;
+  max-width: 72ch;
+}
+
+.post-content {
+  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.08rem);
+  line-height: 1.75;
+}
+
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  line-height: 1.35;
+}
+
+.post-content ul,
+.post-content ol {
+  padding-left: 1.4rem;
+}
+
+.post-content li {
+  margin: 0.5rem 0;
+}
+
+.post-content img {
+  margin: 1.5rem auto;
+}
+
+.post-content pre,
+.post-content div.highlighter-rouge {
+  overflow-x: auto;
+}
+
+.post-content div.highlighter-rouge code {
+  white-space: pre;
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+.post-content table {
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --content-max-width: 820px;
+    --page-horizontal-padding: 2.25rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --content-max-width: 960px;
+    --page-horizontal-padding: 2.75rem;
+  }
+
+  .post-article {
+    max-width: 76ch;
+  }
+}
+
+@media (max-width: 480px) {
+  .post-content {
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
+
+  .post-meta {
+    text-align: left;
+  }
+
+  .post-content table,
+  .post-content div.highlighter-rouge code {
+    font-size: 0.85rem;
+  }
+}
+
+@media (pointer: coarse) {
+  .w {
+    padding-left: max(var(--page-horizontal-padding), env(safe-area-inset-left));
+    padding-right: max(var(--page-horizontal-padding), env(safe-area-inset-right));
+  }
 }
