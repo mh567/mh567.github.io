@@ -213,7 +213,29 @@ img {
 .post-content ol {
   margin-left: 0;
   padding-left: 1.4rem;
+}
+
+.post-content ul {
   list-style-position: outside;
+}
+
+.post-content ol {
+  list-style: none;
+  counter-reset: post-ol-item;
+}
+
+.post-content ol > li {
+  position: relative;
+  padding-left: 1.6rem;
+}
+
+.post-content ol > li::before {
+  content: counter(post-ol-item) ".";
+  counter-increment: post-ol-item;
+  position: absolute;
+  left: 0;
+  width: 1.3rem;
+  text-align: right;
 }
 
 .post-content li {
