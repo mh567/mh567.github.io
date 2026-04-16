@@ -1,7 +1,13 @@
 {%-if include.category-%}
   {%-assign posts = site.categories[include.category]-%}
 {%-elsif include.exclude_category-%}
-  {%-assign posts = site.posts | where_exp: "post", "post.categories contains include.exclude_category == false"-%}
+  {%-assign exclude_cat = include.exclude_category-%}
+  {%-assign posts = "" | split: ""-%}
+  {%-for post in site.posts-%}
+    {%-unless post.categories contains exclude_cat-%}
+      {%-assign posts = posts | push: post-%}
+    {%-endunless-%}
+  {%-endfor-%}
 {%-else-%}
   {%-assign posts = site.posts-%}
 {%-endif-%}
