@@ -2,13 +2,22 @@
 # https://github.com/riggraz/no-style-please#customize-the-menu
 
 entries:
-  - title: 最新文档
+  - title: 技术分享
     post_list:
       limit: 10
       lowercase_titles: false
       show_more: true
       show_more_text: 查看更多...
       show_more_url: archive.html
+
+  - title: 调研报告
+    post_list:
+      category: 调研报告
+      limit: 10
+      lowercase_titles: false
+      show_more: true
+      show_more_text: 查看更多...
+      show_more_url: /categories.html#调研报告
 
   - title: 文档分类
     category_list:
