@@ -13,6 +13,10 @@ goat_counter: "emolu" # GoatCounter site name for analytics
 
 # remote_theme: riggraz/no-style-please # 已改用本地主题文件
 
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
 theme_config:
   appearance: "auto" # can be "light", "dark" or "auto"
   back_home_text: "返回主页" # customize text for homepage link in post layout
