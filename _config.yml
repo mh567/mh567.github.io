@@ -11,7 +11,7 @@ permalink: /:slug.html
 favicon: "logo.png" # name+extension of favicon (which must be put on the root folder)
 goat_counter: "emolu" # GoatCounter site name for analytics
 
-remote_theme: riggraz/no-style-please # if you are using GitHub Pages, change it to remote_theme: riggraz/no-style-please
+# remote_theme: riggraz/no-style-please # 已改用本地主题文件
 
 theme_config:
   appearance: "auto" # can be "light", "dark" or "auto"
