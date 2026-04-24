@@ -14,7 +14,7 @@ entries:
   - title: 调研报告
     post_list:
       category: 调研报告
-      limit: 10
+      limit: 7
       lowercase_titles: false
       show_more: true
       show_more_text: 查看更多...
@@ -25,7 +25,7 @@ entries:
       limit: 5
 
 
-  - title: VibeCoding
+  - title: 我的作品
     entries:
       - title: 【ai-daily】聚焦大模型产业变革的每日 AI 资讯
         url: https://ai-daily.cn
