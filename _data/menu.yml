@@ -30,13 +30,11 @@ entries:
       - title: 【ai-daily】聚焦大模型产业变革的每日 AI 资讯
         url: https://ai-daily.cn
       - title: 【nav-sylph】极简风格个人导航与书签管理页面
-        url: https://emolu.cn:444
-      - title: 【PMWEB】Project Management Web Application
-        url: https://emolu.cn:456
+        url: https://emolu.cn
       - title: 【gemini-web-cli】Google Gemini Web 终端代理
         url: https://github.com/mh567/gemini-web-cli
-      - title: 【aria2bar】aria2 Macos菜单栏管理工具
-        url: https://github.com/mh567/aria2bar
+      - title: 【AriaPilot】Aria2 Macos客户端
+        url: https://github.com/mh567/ariapilot
 
   - title: 关于我
     entries:
