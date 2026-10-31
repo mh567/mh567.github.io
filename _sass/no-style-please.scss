@@ -459,8 +459,6 @@ iframe {
   margin: 1.4rem auto;
 }
 
-.post-content h3:has(+ table),
-.post-content h4:has(+ table),
 .post-content .table-caption {
   font-size: 0.95em;
   font-weight: 600;
@@ -471,9 +469,17 @@ iframe {
   text-wrap: balance;
 }
 
-.post-content h3 + table,
-.post-content h4 + table {
-  margin-top: 0.6rem;
+.post-content .table-caption + table {
+  margin-top: 0.5rem;
+}
+
+.post-content table caption {
+  caption-side: top;
+  padding: 0 0 0.6rem;
+  font-size: 0.95em;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
 }
 
 .post-content figure {
