@@ -3,6 +3,7 @@ layout: post
 title: 中国IPv6发展现状研究报告
 categories: [调研报告]
 slug: china-ipv6-report
+date: 2026-11-01 00:00:00 +0800
 ---
 
 > 研究时间：2026年11月1日 | 研究领域：下一代互联网与网络政策 | 研究对象：中国大陆IPv6生态
