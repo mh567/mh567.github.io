@@ -192,7 +192,7 @@ td {
   padding: 0.55rem 0.7rem;
   text-align: left;
   vertical-align: top;
-  border-bottom: 1px solid var(--rule);
+  border: 1px solid var(--rule);
 }
 
 thead th {
@@ -459,6 +459,41 @@ iframe {
   margin: 1.4rem auto;
 }
 
+.post-content h3:has(+ table),
+.post-content h4:has(+ table),
+.post-content .table-caption {
+  font-size: 0.95em;
+  font-weight: 600;
+  line-height: 1.6;
+  margin: 2.2rem auto 0.5rem;
+  color: var(--text);
+  text-align: center;
+  text-wrap: balance;
+}
+
+.post-content h3 + table,
+.post-content h4 + table {
+  margin-top: 0.6rem;
+}
+
+.post-content figure {
+  margin: 1.6rem auto;
+}
+
+.post-content figure img {
+  margin: 0 auto;
+}
+
+.post-content figcaption,
+.post-content .figure-caption {
+  margin: 0.6rem auto 1.6rem;
+  font-size: 0.88em;
+  line-height: 1.6;
+  color: var(--text-muted);
+  text-align: center;
+  text-wrap: balance;
+}
+
 @media (min-width: 768px) {
   :root {
     --content-max-width: 900px;
@@ -576,6 +611,7 @@ iframe {
   table,
   pre,
   blockquote,
+  figure,
   img {
     break-inside: avoid;
   }
