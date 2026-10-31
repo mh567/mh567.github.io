@@ -7,6 +7,8 @@ slug: china-ipv6-report
 
 > 研究时间：2026年10月31日 | 研究领域：下一代互联网、网络基础设施与产业政策 | 研究对象：中国大陆IPv6生态
 
+[下载 PDF 版本](/assets/pdfs/china-ipv6-report.pdf)
+
 ## 摘要
 
 截至2025年底，中国IPv6活跃用户8.69亿，占网民11.25亿的77.38%。2026年6月，全国网络流量中IPv6占34.55%；移动网络70.85%，固定网络32.38%。用户覆盖接近饱和，流量份额停在三分之一，固定网络不到移动网络的一半。
@@ -422,6 +424,3 @@ SAVA/SAVNET、IPv6地址编码国家标准、IPv6安全设备系列标准、运�
 36. arXiv 2604.19487: "Revisiting and Expanding the IPv6 Network Periphery", 2026年。https://arxiv.org/abs/2604.19487
 
 （以上来源访问时间为2026年10月31日，共36项）
-
-
-[下载 PDF 版本](/assets/pdfs/china-ipv6-report.pdf)
