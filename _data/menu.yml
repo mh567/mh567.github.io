@@ -35,9 +35,9 @@ entries:
         url: https://github.com/mh567/gemini-web-cli
       - title: 【AriaPilot】Aria2 Macos客户端
         url: https://github.com/mh567/ariapilot
-      - title: 【wx-doc-format-skill】Markdown / DOCX 一键转为 WX 技术文档格式的 Agent Skill
+      - title: 【wx-doc-format-skill】WX 文档格式转换 Skill
         url: https://github.com/mh567/wx-doc-format-skill
-      - title: 【lulupaopao】水豚噜噜的潮玩风跑酷游戏，支持微信小程序与网页版
+      - title: 【lulupaopao】水豚噜噜潮玩跑酷游戏
         url: https://github.com/mh567/lulupaopao
 
   - title: 关于我
