@@ -29,8 +29,8 @@ entries:
     entries:
       - title: 【ai-daily】聚焦大模型产业变革的每日 AI 资讯
         url: https://ai-daily.cn
-      - title: 【nav-sylph】可同步收藏夹的个人导航页
-        url: https://emolu.cn
+      - title: 【Pabu】支持多端同步的个人导航页
+        url: https://pabu.emolu.cn/
       - title: 【gemini-web-cli】Google Gemini Web 终端代理
         url: https://github.com/mh567/gemini-web-cli
       - title: 【AriaPilot】Aria2 Macos客户端
